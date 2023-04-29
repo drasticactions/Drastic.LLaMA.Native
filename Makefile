@@ -1,5 +1,13 @@
 BUILD_TYPE=Release
 
+windows_arm64:
+	cmake -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -S . -B build/win-arm64 -A ARM64
+	cmake --build build/win-arm64
+
+windows_x64:
+	cmake -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -S . -B build/win-x64 -A x64
+	cmake --build build/win-x64
+
 macos:
 	cmake -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DCMAKE_TOOLCHAIN_FILE=ios.toolchain.cmake -DPLATFORM=MAC_UNIVERSAL -S . -B build/macos
 	cmake --build build/macos
